@@ -1,10 +1,7 @@
 <?php
 require 'wallpaper.php';
+
 // Récupération de la résolution de l'utilisateur
-
-$width = 1920;
-$height = 1080;
-
 if(isset($_POST['width'])&&isset($_POST['width'])){
 	$width = $_POST["width"];
 	$height = $_POST["height"];
@@ -18,12 +15,14 @@ else {
 	$recadrer = false;
 }
 
-$url = '';
-
+var_dump($_POST);
+// if (false) {
 if (isset($_POST["generer"])){
 
 	// Récupération du code html de la page qwertee
-	if ($file = fopen ($_POST["url"], "r")){
+	$url = $_POST["url"];
+	echo($url);
+	if ($file = fopen ("https://www.qwertee.com/print/the-father-948", "r")){
 		$url = $_POST["url"];
 		if (!$file) {
 			echo "<p>Impossible de lire la page.</p>";
@@ -52,7 +51,7 @@ if (isset($_POST["generer"])){
 		$recadrage = $recadrer;
 		$wallpaper = createWallpaper($image, $width, $height);
 
-		$path = 'http://localhost/druz/qwertee-to-wallpaper/'.$wallpaper;
+		$path = ''.$wallpaper;
 	}
 	else{
 		echo "problème dans le chargement de l'url";

@@ -20,7 +20,15 @@ function createWallpaper($image, $width = 1920, $height = 1080, $multiplier = 1.
 		// $recadrage = true;
 
 		$destination = @imagecreatetruecolor($width, $height) or die ("Erreur lors de la création de l'image");
-		imagefill ( $destination , 0 , 0 , $rgb );
+		// imagefill ( $destination , 0 , 0 , $rgb );
+
+		$tileSize = 10;
+		$tile = @imagecreatetruecolor($tileSize, $tileSize);
+		imagecopyresized($tile, $source, 0, 0, 0, 0, $tileSize, $tileSize, $tileSize, $tileSize);
+		// imagecopyresized($tile, $source, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h);
+
+		imagesettile($destination, $tile);
+		imagefilledrectangle($destination, 0, 0, $width, $height, IMG_COLOR_TILED);
 
 		// Partie copiée de la source
 		$src_x = 0;
