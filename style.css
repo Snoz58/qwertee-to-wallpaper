@@ -1,0 +1,26 @@
+footer{
+	background-color: #EEE;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 2em 0 2em;
+}
+
+h1{
+	text-align: center;
+}
+
+.image{
+	margin: auto;
+	text-align: center;
+}
+
+.image img{
+	border-radius: 15px;
+	width: 285px;
+	height: 342px;
+	margin: 0;
+}
+
+.material-icons {color: red;
+	line-height: 40px;
+}
