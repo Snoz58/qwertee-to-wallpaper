@@ -50,7 +50,7 @@
 		</div>
 
         <footer>
-            <div class="float-left">Made with <3 by Corentin MÉTÉNIER - <a href="https://github.com/Snoz58/qwertee-to-wallpaper">GitHub</a></div>
+            <div class="float-left">Made with <3 by Corentin MÉTÉNIER & Arsène THIEFFRY - <a href="https://github.com/Snoz58/qwertee-to-wallpaper">GitHub</a></div>
             <div class="float-right">CSS : Milligram - <a href="https://github.com/milligram/milligram">GitHub</a></div>
         </footer>
 
