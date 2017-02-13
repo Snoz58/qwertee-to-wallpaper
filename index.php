@@ -1,21 +1,13 @@
 <?php
-
+require 'wallpaper.php';
 // Récupération de la résolution de l'utilisateur
 
-if(!isset($_POST['screenw'])&&!isset($_POST['screenh'])){
-	/*
-	echo "<script type=\"text/javascript\">\n";
+$width = 1920;
+$height = 1080;
 
-	echo "location.href='index.php?screenw='+screen.width+'&screenh='+screen.height;\n";
-
-	echo "</script>\n";
-*/
-}
-else {
-
-	$screenw = $_POST["screenw"];
-	$screenh = $_POST["screenh"];
-
+if(isset($_POST['width'])&&isset($_POST['width'])){
+	$width = $_POST["width"];
+	$height = $_POST["height"];
 }
 
 // Gestion du recadrage
@@ -58,7 +50,9 @@ if (isset($_POST["generer"])){
 		$imageMini = str_replace( "500x600" , "285x342" , $image);
 
 		$recadrage = $recadrer;
-		include('wallpaper.php');
+		$wallpaper = createWallpaper($image, $width, $height);
+
+		$path = 'http://localhost/druz/qwertee-to-wallpaper/'.$wallpaper;
 	}
 	else{
 		echo "problème dans le chargement de l'url";

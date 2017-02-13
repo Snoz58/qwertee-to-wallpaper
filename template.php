@@ -30,15 +30,15 @@
 							<label class="label-inline" for="recadrer">Recadrer l'image (Provoque une perte de qualité)</label>
 
 							<label for="screenx">Résolution souhaitée</label>
-							<input type="number" value="" id="screenw" name="screenw">
-							<input type="number" value="" id="screenh" name="screenh">
+							<input type="number" value="" id="width" name="width" placeholder="Largeur">
+							<input type="number" value="" id="height" name="height" placeholder="Hauteur">
 
 							<input class="button-primary" type="submit" value="Générer" name="generer">
 						</fieldset>
 					</form>
 <?php if (isset($_POST["generer"])) : ?>
 					<div class="image">
-						<img src="<?php echo $imageMini; ?>">
+						<img src="<?= $imageMini; ?>">
 						<div class="clearfix"></div>
 						<a download="qwertee_wallpaper.jpg" href="<?= $path ?>"><button class="button-primary">Télécharger</button></a>
 						<a href="<?= $path ?>" target="_blank"><button class="button-primary">Afficher</button></a>
@@ -55,8 +55,8 @@
         </footer>
 
 		<script type="text/javascript">
-			var screenw = document.getElementById('screenw').value = screen.width;
-			var screenh = document.getElementById('screenh').value = screen.height;
+			var screenw = document.getElementById('width').value = screen.width;
+			var screenh = document.getElementById('height').value = screen.height;
 		</script>
 
     </body>
