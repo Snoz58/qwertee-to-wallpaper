@@ -40,8 +40,9 @@
 					<div class="image">
 						<img src="<?= $imageMini; ?>">
 						<div class="clearfix"></div>
-						<a download="qwertee_wallpaper.jpg" href="<?= $path ?>"><button class="button-primary">Télécharger</button></a>
+						<a download="<?= $nomImage; ?>.jpg" href="<?= $path ?>"><button class="button-primary">Télécharger</button></a>
 						<a href="<?= $path ?>" target="_blank"><button class="button-primary">Afficher</button></a>
+						<p class="description">Image <?= $nomAuteur; ?></p>
 					</div>
 <?php endif; ?>
 				</div>
