@@ -16,7 +16,6 @@ h1{
 
 .image img{
 	border-radius: 15px;
-	width: 285px;
-	height: 342px;
+	max-width: 285px;
 	margin: 0;
 }

@@ -2,14 +2,23 @@
 
 //$image = $_GET['image'];
 
-function createWallpaper($image, $width = 1920, $height = 1080, $multiplier = 1.0) {
+function createWallpaper($image, $width = 1920, $height = 1080, $type, $multiplier = 1.0) {
 
 	$path = 'images/'.md5($image.$width.$height.$multiplier).'.jpg';
 
 	if (!file_exists($path)) {
+
+		// Gestion des affiche (recadrage de l'image et point de récupération de couleur différent)
+		if ($type = "print"){ // pour une affiche
+			$offsetImage = 10;
+		}
+		else { // pour un teeshirt
+			$offsetImage = 0;
+		}
+
 		// Récupération de la couleur de fond de l'image source
 		$source = imagecreatefromjpeg($image);
-		$rgb = imagecolorat($source, 1, 1);
+		$rgb = imagecolorat($source, $offsetImage, $offsetImage);
 		$colors = imagecolorsforindex($source, $rgb);
 
 
@@ -37,11 +46,26 @@ function createWallpaper($image, $width = 1920, $height = 1080, $multiplier = 1.
 //########## Fin du code pour le remplissage des patterns
 
 
-		// Partie copiée de la source
-		$src_x = 0;
-		$src_y = 0;
-		$src_w = imagesx($source);
-		$src_h = imagesy($source);
+		$src_x = $offsetImage;
+		$src_y = $offsetImage;
+		$src_w = (imagesx($source)-($offsetImage*2));
+		$src_h = (imagesy($source)-($offsetImage*2));
+
+
+
+		// // Partie copiée de la source
+		// if ($type = "print"){ // pour une affiche
+		// 	$src_x = 3;
+		// 	$src_y = 3;
+		// 	$src_w = (imagesx($source)-6);
+		// 	$src_h = (imagesy($source)-6);
+		// }
+		// else{ // pour un teeshirt
+		// 	$src_x = 0;
+		// 	$src_y = 0;
+		// 	$src_w = imagesx($source);
+		// 	$src_h = imagesy($source);		
+		// }
 
 
 		$dst_x = ($width-$src_w*$multiplier)/2;
@@ -50,7 +74,6 @@ function createWallpaper($image, $width = 1920, $height = 1080, $multiplier = 1.
 		$dst_h = $src_h*$multiplier;
 
 		imagecopyresized($destination, $source, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h);
-
 
 
 		imagejpeg($destination, $path, 100);

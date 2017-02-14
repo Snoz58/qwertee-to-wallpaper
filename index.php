@@ -27,6 +27,14 @@ if (isset($_POST["generer"])){
 			exit;
 		}
 
+		if (substr_count($url, "print")){
+			$produit = "print";
+		}
+		else{
+			$produit = "tee";
+		}
+
+
 		// Lecture ligne par ligne
 		while (!feof ($file)) {
 
@@ -67,7 +75,7 @@ if (isset($_POST["generer"])){
 		$nomAuteur = str_replace("/profile", "https://www.qwertee.com/profile", $nomAuteur);
 
 		$recadrage = $recadrer;
-		$wallpaper = createWallpaper($image, $width, $height);
+		$wallpaper = createWallpaper($image, $width, $height, $produit);
 
 		$path = ''.$wallpaper;
 

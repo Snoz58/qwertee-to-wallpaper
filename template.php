@@ -19,7 +19,7 @@
 				<div class="column column-50 column-offset-25">
 					<a href="./index.php"><h1 class="title">Qwertee to Wallpaper</h1></a>
 					<p class="description">
-						Création de fond d'écran à partir d'images de <a href="https://www.qwertee.com/shop">Qwertee</a>.
+						Création de fond d'écran à partir d'images de <a target="_blank" href="https://www.qwertee.com/shop">Qwertee</a>.
 					</p>
 					<form action="index.php" method="post">
 						<fieldset>
