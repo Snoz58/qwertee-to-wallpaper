@@ -32,14 +32,16 @@ function createWallpaper($image, $width = 1920, $height = 1080, $type, $multipli
 
 //########## Code pour le remplissage des patterns
 
-//		// Création de la textre pour la remplissage
-//		$tileSize = 20;
-//		$tile = @imagecreatetruecolor($tileSize, $tileSize);
-//		imagecopyresized($tile, $source, 0, 0, 0, 0, $tileSize, $tileSize, $tileSize, $tileSize);
-//
+		// Création de la textre pour la remplissage
+		$tileSize = 100;
+		$tile = @imagecreatetruecolor($tileSize, $tileSize);
+		imagecopyresized($tile, $source, 0, 0, 0, 0, $tileSize, $tileSize, $tileSize, $tileSize);
+
 //		// Remplissage de la destination par la texture
 //		imagesettile($destination, $tile);
 //		imagefilledrectangle($destination, 0, 0, $width, $height, IMG_COLOR_TILED);
+
+		$destination = homeMadeTiling($destination, $tile);
 
 //########## Fin du code pour le remplissage des patterns
 

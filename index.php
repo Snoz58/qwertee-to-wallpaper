@@ -1,5 +1,6 @@
 <?php
 require 'wallpaper.php';
+require 'tiling.php';
 
 // Récupération de la résolution de l'utilisateur
 if(isset($_POST['width'])&&isset($_POST['width'])){
