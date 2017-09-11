@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
 		<!-- Custom CSS -->
 		<link rel="stylesheet" type="text/css" href="./style.css">
+		<meta charset="UTF-8">
 	</head>
 
  	<body>
