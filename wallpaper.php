@@ -1,6 +1,10 @@
 <?php
 
 function createWallpaper($image, $width = 1920, $height = 1080, $type, $multiplier = 1.0) {
+    
+    if (!is_dir('images/')) {
+        mkdir('images/');
+    }
 
 	$path = 'images/'.md5($image.$width.$height.$multiplier).'.jpg';
 
