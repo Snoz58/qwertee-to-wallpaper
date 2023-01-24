@@ -35,14 +35,14 @@
 					<form action="index.php" method="post">
 						<fieldset>
 							<label for="url">Url de la source</label>
-							<input type="text" placeholder="https://www.qwertee.com/product/..." id="url" name="url" value="<?= $url ?>">
+							<input type="text" placeholder="https://www.qwertee.com/product/..." id="url" name="url" value="<?= $_POST['url'] ?? '' ?>">
 
 							<input type="checkbox" id="recadrer" name="recadrer">
 							<label class="label-inline" for="recadrer">Recadrer l'image (Provoque une perte de qualité)</label>
 
 							<label for="screenx">Résolution souhaitée</label>
-							<input type="number" value="" id="width" name="width" placeholder="Largeur">
-							<input type="number" value="" id="height" name="height" placeholder="Hauteur">
+							<input type="number" value="<?=$_POST['width']??''?>" id="width" name="width" placeholder="Largeur">
+							<input type="number" value="<?=$_POST['height']??''?>" id="height" name="height" placeholder="Hauteur">
 
 							<input class="button-primary" type="submit" value="Générer" name="generer">
 						</fieldset>
@@ -51,9 +51,9 @@
 					<div class="image">
 						<img src="<?= $imageMini; ?>">
 						<div class="clearfix"></div>
-						<a download="<?= $nomImage; ?>.jpg" href="<?= $path ?>"><button class="button-primary">Télécharger</button></a>
+						<a download="<?= $nomFichier; ?>.jpg" href="<?= $path ?>"><button class="button-primary">Télécharger</button></a>
 						<a href="<?= $path ?>" target="_blank"><button class="button-primary">Afficher</button></a>
-						<p class="description">Image <?= $nomAuteur; ?></p>
+						<p class="description"><strong><?= $nomDesign ?></strong> by <em><?= $nomAuteur; ?></em></p>
 					</div>
 <?php endif; ?>
 				</div>
@@ -62,13 +62,13 @@
 		</div>
 
         <footer>
-            <div class="float-left">Made with <3 by Corentin MÉTÉNIER & Arsène THIEFFRY</div>
+            <div class="float-left">Made with &lt;3 by Corentin MÉTÉNIER & Arsène THIEFFRY</div>
             <div class="float-right">CSS : Milligram - <a href="https://github.com/milligram/milligram">GitHub</a></div>
         </footer>
 
 		<script type="text/javascript">
-			var screenw = document.getElementById('width').value = screen.width;
-			var screenh = document.getElementById('height').value = screen.height;
+			const screenw = document.getElementById('width').value = document.getElementById('width').value || screen.width;
+			const screenh = document.getElementById('height').value = document.getElementById('height').value || screen.height;
 		</script>
 
     </body>
